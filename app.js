@@ -4,6 +4,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const logger = require('morgan');
+const flash = require('connect-flash');
 
 const { isAuthorized } = require('./controllers/login');
 const indexRouter = require('./routes/index');
@@ -27,7 +28,8 @@ app.use(session({
   expires: new Date(Date.now() + 3600000),
   saveUninitialized: false,
   resave: false
-}))
+}));
+app.use(flash());
 
 app.use('/', indexRouter);
 app.use('/login', loginRouter);

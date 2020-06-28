@@ -2,10 +2,12 @@ const express = require('express');
 const router = express.Router();
 const multer = require('multer');
 const upload = multer({ dest: './public/assets/img/products/' });
-const { get, post } = require('../controllers/admin');
+const { get, postSkills, postUpload } = require('../controllers/admin');
 
 router.get('/', get);
 
-router.post('/:type', upload.single('photo'), post);
+router.post('/skills', postSkills);
+
+router.post('/upload', upload.single('photo'), postUpload);
 
 module.exports = router;

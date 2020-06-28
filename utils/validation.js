@@ -1,7 +1,7 @@
 const joi = require('@hapi/joi');
 
 const authSchema = joi.object({
-  username: joi.string().email().required(),
+  email: joi.string().email().required(),
   password: joi.string().min(6).max(12).required()
 });
 

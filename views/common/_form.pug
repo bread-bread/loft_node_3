@@ -1,5 +1,5 @@
 section.form
-  .container
+  .container#form
     if (msgemail)
       .status= msgemail
     .form__subtitle.subtitle Контактные данные
@@ -14,6 +14,8 @@ section.form
       .form-email__line
         label.form-email__label(for="") Сообщение
         textarea(name="message").form-email__textarea
+      if (msgemail)
+        input#hidden_input(type="hidden")
       .form-email__line
         button(type="submit").form-email__button.button Отправить
     
